@@ -1,6 +1,9 @@
 import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom'
 import { headerLinks } from "@/common/local-data"
+import { Input } from "antd"
+import { SearchOutlined } from '@ant-design/icons'
+
 import { ContentWrapper, HeaderLeft, HeaderRight } from './style'
 export default memo(function YQAppHeader() {
   const ShowItem = (item, index) => {
@@ -12,7 +15,6 @@ export default memo(function YQAppHeader() {
   }
   return (
     <ContentWrapper>
-
       <div className={"content wrap-v1"}>
         <HeaderLeft >
           <a href="#/" className="logo sprite_01">网易云音乐</a>
@@ -28,7 +30,15 @@ export default memo(function YQAppHeader() {
             }
           </div>
         </HeaderLeft>
-        <HeaderRight></HeaderRight>
+        <HeaderRight>
+          <Input
+            className="search"
+            placeholder={"音乐/视频/电台/用户"}
+            prefix={<SearchOutlined />}>
+          </Input>
+          <div className="center">创作者中心</div>
+          <div>登录</div>
+        </HeaderRight>
       </div>
       <div className={"contentBottom"}></div>
     </ContentWrapper>
