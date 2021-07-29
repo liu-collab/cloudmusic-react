@@ -1,18 +1,18 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 
 import { dicoverMenu } from '@/common/local-data'
 import { NavLink } from "react-router-dom"
 import { renderRoutes } from 'react-router-config'
-import request from '@/services/request'
+
 import { WarpperTop, TopMenu } from './style'
 
 export default memo(function YQDiscover(props) {
-  useEffect(() => {
+  // useEffect(() => {
 
-    request({
-      url: "/banner"
-    }).then(res => console.log(res))
-  }, [])
+  //   request({
+  //     url: "/banner"
+  //   }).then(res => console.log(res))
+  // }, [])
   //获取子路由
   const { route } = props
   return (
