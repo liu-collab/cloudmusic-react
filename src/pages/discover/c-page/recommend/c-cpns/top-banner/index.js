@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 
@@ -8,6 +8,9 @@ import { getTopBannerAction } from '../../store/actionsCreators'
 import { WrapperBanners, BannersLeft, BannersRight, BannerControl } from './style'
 
 export default memo(function YQTopBanners() {
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  //redux
   //通过hooks和redux相关联
   //获取到数据
   //存在性能优化问题
@@ -25,15 +28,27 @@ export default memo(function YQTopBanners() {
   }), shallowEqual)
   //获取到dispatch
   const dispatch = useDispatch()
+
+  //hook
   const BannerRef = useRef()
   useEffect(() => {
     dispatch(getTopBannerAction())
   }, [dispatch])
+  //banner图片切换始终保持当前图片序号
+  //使用usecallback对函数进行一个缓存
+  const bannerChange = useCallback((from, to) => {
+    setCurrentIndex(to)
+  }, [])
+
+  //其他业务逻辑
+  //获取当前图片进行高斯模糊
+  const bgImage = topBanners[currentIndex] && (topBanners[currentIndex].imageUrl + "?imageView&blur=40x20")
+
   return (
-    <WrapperBanners>
+    <WrapperBanners bgImage={bgImage}>
       <div className="banner wrap-v2">
         <BannersLeft>
-          <Carousel effect="fade" autoplay ref={BannerRef} >
+          <Carousel effect="fade" autoplay ref={BannerRef} beforeChange={bannerChange}>
             {
               topBanners.map((item) => {
                 return (

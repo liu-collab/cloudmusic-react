@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const WrapperBanners = styled.div`
-
+background: url(${props => props.bgImage}) center/6000px;
 
 .banner{
   height: 270px;

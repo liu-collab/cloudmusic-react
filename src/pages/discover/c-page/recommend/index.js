@@ -2,13 +2,17 @@ import React, { memo } from 'react'
 
 import YQTopBanners from './c-cpns/top-banner'
 
-import { WrapperRecommend } from './styled'
+import { WrapperRecommend, Content, RecommendLeft, RecommendRight } from './styled'
 
 function Recommend(props) {
 
   return (
     <WrapperRecommend>
       <YQTopBanners></YQTopBanners>
+      <Content className="wrap-v2">
+        <RecommendLeft>RecommendLeft</RecommendLeft>
+        <RecommendRight> RecommendRight</RecommendRight>
+      </Content>
     </WrapperRecommend>
   )
 }
