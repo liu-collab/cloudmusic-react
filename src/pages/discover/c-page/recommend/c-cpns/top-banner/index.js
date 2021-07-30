@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 
@@ -25,7 +25,7 @@ export default memo(function YQTopBanners() {
   }), shallowEqual)
   //获取到dispatch
   const dispatch = useDispatch()
-
+  const BannerRef = useRef()
   useEffect(() => {
     dispatch(getTopBannerAction())
   }, [dispatch])
@@ -33,7 +33,7 @@ export default memo(function YQTopBanners() {
     <WrapperBanners>
       <div className="banner wrap-v2">
         <BannersLeft>
-          <Carousel autoplay>
+          <Carousel effect="fade" autoplay ref={BannerRef} >
             {
               topBanners.map((item) => {
                 return (
@@ -47,8 +47,8 @@ export default memo(function YQTopBanners() {
         </BannersLeft>
         <BannersRight></BannersRight>
         <BannerControl className="contor">
-          <button className="btn left"></button>
-          <button className="btn right"></button>
+          <button className="btn left" onClick={e => BannerRef.current.prev()}></button>
+          <button className="btn right" onClick={e => BannerRef.current.next()}></button>
         </BannerControl>
       </div>
 

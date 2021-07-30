@@ -9,6 +9,19 @@ export const WrapperBanners = styled.div`
   background-color: red;
   display: flex;
   position: relative;
+   .ant-carousel .slick-dots li button {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+  }
+  .ant-carousel .slick-dots li {
+    width: 10px;
+    height: 10px;
+    margin-left: 15px;
+  }
+  .ant-carousel .slick-dots li.slick-active button{
+    background-color: #C20C0C;
+  }
 }
 `
 
@@ -59,7 +72,7 @@ export const BannerControl = styled.div`
     right: -68px;
     background-position: 0 -508px;
   }
-  
+ 
 
 
 `
