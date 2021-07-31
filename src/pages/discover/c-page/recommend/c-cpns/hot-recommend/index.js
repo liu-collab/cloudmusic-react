@@ -2,8 +2,10 @@ import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getHotRecommendAction } from '../../store/actionsCreators'
 import { WrapperYQHotRecommend } from './style'
+
 import { HOT_RECOMMEND_LIMT } from '@/common/constants'
 import YQThemeHeaderRCMQT from '@/components/theme-header-rcm'
+import YQSongCover from '@/components/songs-cover'
 
 export default memo(function YQHotRecommend() {
 
@@ -27,7 +29,7 @@ export default memo(function YQHotRecommend() {
       <div className="recommend-list">
         {
           hotRecommend.map((item, index) => {
-            return <div key={item.targetId}>{item.name}</div>
+            return <YQSongCover key={item.targetId} info={item}></YQSongCover>
           })
         }
       </div>
