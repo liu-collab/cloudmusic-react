@@ -4,7 +4,8 @@ import * as actionsTypes from './constants.js'
 
 //默认值
 const defaultState = Map({
-  topBanners: []
+  topBanners: [],
+  hotRecommend: []
 })
 
 function reducer(state = defaultState, action) {
@@ -14,7 +15,8 @@ function reducer(state = defaultState, action) {
       // return { ...state, topBanners: action.topBanners }
       //导入immutableJS,对数据进行一个优化
       return state.set("topBanners", action.topBanners)
-
+    case actionsTypes.CHANGE_HOT_RECOMMEND:
+      return state.set("hotRecommend", action.hotRecommend)
     default:
       return state
   }

@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
+import { PropTypes } from 'prop-types'
 import { WrappperThemeHeaderRCM } from './style'
-export default memo(function YQThemeHeaderRCM(props) {
+const YQThemeHeaderRCM = memo(function (props) {
   const { title, keywords, morelink, keywordClick } = props
   return (
     <WrappperThemeHeaderRCM className="sprite_02">
@@ -27,3 +28,15 @@ export default memo(function YQThemeHeaderRCM(props) {
     </WrappperThemeHeaderRCM>
   )
 })
+//检查数据类型
+YQThemeHeaderRCM.propTypes = {
+  title: PropTypes.string.isRequired,
+  keywords: PropTypes.array
+
+}
+YQThemeHeaderRCM.defaultProps = {
+  keywords: []
+}
+
+
+export default YQThemeHeaderRCM

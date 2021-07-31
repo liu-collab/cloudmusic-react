@@ -4,6 +4,8 @@ import YQTopBanners from './c-cpns/top-banner'
 
 import { WrapperRecommend, Content, RecommendLeft, RecommendRight } from './styled'
 import YQHotRecommend from './c-cpns/hot-recommend'
+import YQNewAlbum from './c-cpns/album'
+import YQRecommendRanking from './c-cpns/recommend-ranking'
 
 function Recommend(props) {
 
@@ -13,6 +15,8 @@ function Recommend(props) {
       <Content className="wrap-v2">
         <RecommendLeft>
           <YQHotRecommend></YQHotRecommend>
+          <YQNewAlbum></YQNewAlbum>
+          <YQRecommendRanking></YQRecommendRanking>
         </RecommendLeft>
         <RecommendRight> RecommendRight</RecommendRight>
       </Content>
