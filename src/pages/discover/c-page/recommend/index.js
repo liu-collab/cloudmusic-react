@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import YQTopBanners from './c-cpns/top-banner'
 
 import { WrapperRecommend, Content, RecommendLeft, RecommendRight } from './styled'
+import YQHotRecommend from './c-cpns/hot-recommend'
 
 function Recommend(props) {
 
@@ -10,7 +11,9 @@ function Recommend(props) {
     <WrapperRecommend>
       <YQTopBanners></YQTopBanners>
       <Content className="wrap-v2">
-        <RecommendLeft>RecommendLeft</RecommendLeft>
+        <RecommendLeft>
+          <YQHotRecommend></YQHotRecommend>
+        </RecommendLeft>
         <RecommendRight> RecommendRight</RecommendRight>
       </Content>
     </WrapperRecommend>
