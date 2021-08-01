@@ -4,7 +4,7 @@ import { getNewAlbumAction } from '../../store/actionsCreators'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { NEW_ALBUM_LIMT } from '@/common/constants'
 import { WrapperNewAlbum } from './style'
-import YQSongCover from '@/components/songs-cover'
+
 
 export default memo(function YQNewAlbum() {
 
@@ -28,7 +28,7 @@ export default memo(function YQNewAlbum() {
         {
           newAlbum.map((item, index) => {
             return (
-              <YQSongCover key={item.id} info={item}></YQSongCover>
+              <div key={item.pic}>{item.name}</div>
             )
           })
         }
