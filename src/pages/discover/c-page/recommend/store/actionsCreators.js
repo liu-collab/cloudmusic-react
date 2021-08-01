@@ -3,7 +3,7 @@
 import * as actionsTypes from './constants.js'
 
 
-import { getTopBanners, getHotRecommend } from '@/services/recommend.js'
+import { getTopBanners, getHotRecommend, getNewAlbum } from '@/services/recommend.js'
 
 
 
@@ -23,9 +23,11 @@ export const getTopBannerAction = () => {
   }
 }
 
+///热门推荐模块
 const changeHotRecommendAction = (res) => ({
   type: actionsTypes.CHANGE_HOT_RECOMMEND,
   hotRecommend: res.result
+
 })
 
 export const getHotRecommendAction = (limt) => {
@@ -35,3 +37,18 @@ export const getHotRecommendAction = (limt) => {
     })
   }
 }
+
+//新碟上架模块
+const changeNewAlbumAction = (res) => ({
+  type: actionsTypes.CHANGE_NEW_ALBUM,
+  newAlbum: res.albums
+})
+
+export const getNewAlbumAction = (limit) => {
+  return dispatch => {
+    getNewAlbum(limit).then(res => {
+      dispatch(changeNewAlbumAction(res))
+    })
+  }
+}
+

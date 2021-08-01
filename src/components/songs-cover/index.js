@@ -30,7 +30,7 @@ export default memo(function YQSongCover(props) {
         {info.name}
       </div>
       <div className="cover-source">
-        by {info.copywriter || info.creator.nickname}
+        by {info.copywriter}
       </div>
     </SongCoverWrapper>
   )

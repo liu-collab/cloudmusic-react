@@ -29,7 +29,7 @@ export default memo(function YQHotRecommend() {
       <div className="recommend-list">
         {
           hotRecommend.map((item, index) => {
-            return <YQSongCover key={item.targetId} info={item}></YQSongCover>
+            return <YQSongCover key={item.id} info={item}></YQSongCover>
           })
         }
       </div>

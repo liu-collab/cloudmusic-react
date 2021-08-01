@@ -5,7 +5,8 @@ import * as actionsTypes from './constants.js'
 //默认值
 const defaultState = Map({
   topBanners: [],
-  hotRecommend: []
+  hotRecommend: [],
+  newAlbum: []
 })
 
 function reducer(state = defaultState, action) {
@@ -17,6 +18,8 @@ function reducer(state = defaultState, action) {
       return state.set("topBanners", action.topBanners)
     case actionsTypes.CHANGE_HOT_RECOMMEND:
       return state.set("hotRecommend", action.hotRecommend)
+    case actionsTypes.CHANGE_NEW_ALBUM:
+      return state.set("newAlbum", action.newAlbum)
     default:
       return state
   }
