@@ -5,6 +5,7 @@ import { getNewAlbumAction } from '../../store/actionsCreators'
 
 import { Carousel } from 'antd';
 import YQThemeHeaderRCMQT from '@/components/theme-header-rcm'
+import YQAlbumCover from '@/components/album-cover'
 import { NEW_ALBUM_LIMT } from '@/common/constants'
 import { WrapperNewAlbum } from './style'
 
@@ -43,7 +44,12 @@ export default memo(function YQNewAlbum() {
                       //截取每页五条数据进行遍历
                       newAlbum.slice(item * 5, (item + 1) * 5).map((iten, index) => {
                         return (
-                          <div key={iten.id}>{iten.name}</div>
+                          <YQAlbumCover
+                            key={iten.id}
+                            info={iten}
+                            size={100}
+                            width={118}
+                            bgp="-570px"></YQAlbumCover>
                         )
                       })
                     }

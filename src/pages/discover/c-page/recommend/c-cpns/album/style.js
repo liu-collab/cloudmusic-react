@@ -24,7 +24,7 @@ margin: 50px 0;
     }
 .album {
    width: 640px;
-   height: 150px;
+   height: 165px;
 }
 .page{
   display: flex!important;
