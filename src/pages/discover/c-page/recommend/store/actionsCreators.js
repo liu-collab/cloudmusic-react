@@ -73,14 +73,15 @@ export const getTopDataAction = (idx) => {
   return dispatch => {
     getTopList(idx).then(res => {
       switch (idx) {
+
         case 0:
-          dispatch(chnageUpRankingAction(res))
-          break;
-        case 2:
           dispatch(chnageNewRankingAction(res))
           break;
-        case 3:
+        case 2:
           dispatch(chnageOriginRankingAction(res))
+          break;
+        case 3:
+          dispatch(chnageUpRankingAction(res))
           break;
         default:
           console.log(111)
