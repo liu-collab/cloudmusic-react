@@ -7,7 +7,7 @@ const YQThemeHeaderSmall = memo(function (props) {
   const { title, more } = props
   return (
     <WarpperHeaderSmall>
-      <h3>{title}</h3>
+      <span>{title}</span>
       <a href="/more">{more}</a>
     </WarpperHeaderSmall>
   )

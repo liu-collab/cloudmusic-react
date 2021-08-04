@@ -4,6 +4,7 @@ import * as actionsTypes from './constants.js'
 
 
 import { getTopBanners, getHotRecommend, getNewAlbum, getTopList } from '@/services/recommend.js'
+import { getArtistList } from '../../../../../services/recommend.js'
 
 
 
@@ -85,6 +86,20 @@ export const getTopDataAction = (idx) => {
         default:
           console.log(111)
       }
+    })
+  }
+}
+
+
+//
+const changeSingerAction = (res) => ({
+  type: actionsTypes.CHANGE_SINGER,
+  setterSingers: res.artists
+})
+export const getSingerAction = () => {
+  return dispatch => {
+    getArtistList(5, 5001).then(res => {
+      dispatch(changeSingerAction(res))
     })
   }
 }

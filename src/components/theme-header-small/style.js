@@ -7,7 +7,8 @@ align-items: flex-end;
 padding-bottom: 5px;
 border-bottom: 1px solid #ccc;
 
-a {
+span {
   font-size: 12px;
+  font-weight: 600;
 }
 `
