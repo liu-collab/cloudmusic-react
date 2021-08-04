@@ -1,11 +1,16 @@
 import React, { memo } from 'react'
 
-import YQTopBanners from './c-cpns/top-banner'
+
 
 import { WrapperRecommend, Content, RecommendLeft, RecommendRight } from './styled'
+import YQTopBanners from './c-cpns/top-banner'
 import YQHotRecommend from './c-cpns/hot-recommend'
 import YQNewAlbum from './c-cpns/album'
 import YQRecommendRanking from './c-cpns/recommend-ranking'
+import YQHotRadio from './c-cpns/hot-radio'
+import YQUserLogin from './c-cpns/user-login'
+import YQSetterSinger from './c-cpns/setter-singer'
+
 
 function Recommend(props) {
 
@@ -18,7 +23,13 @@ function Recommend(props) {
           <YQNewAlbum></YQNewAlbum>
           <YQRecommendRanking></YQRecommendRanking>
         </RecommendLeft>
-        <RecommendRight> RecommendRight</RecommendRight>
+        <RecommendRight>
+          <YQUserLogin></YQUserLogin>
+          <YQSetterSinger></YQSetterSinger>
+          <YQHotRadio></YQHotRadio>
+
+
+        </RecommendRight>
       </Content>
     </WrapperRecommend>
   )

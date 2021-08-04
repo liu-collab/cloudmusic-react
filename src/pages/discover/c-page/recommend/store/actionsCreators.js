@@ -73,7 +73,6 @@ export const getTopDataAction = (idx) => {
   return dispatch => {
     getTopList(idx).then(res => {
       switch (idx) {
-
         case 0:
           dispatch(chnageNewRankingAction(res))
           break;
