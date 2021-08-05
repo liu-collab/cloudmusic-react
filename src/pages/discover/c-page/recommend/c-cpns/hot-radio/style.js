@@ -6,7 +6,7 @@ padding: 20px;
   height: 40px;
  margin: 10px 0;
   display: flex;
-  
+  text-decoration: none;
 
   img {
  

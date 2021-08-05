@@ -41,7 +41,6 @@ export function getArtistList(limit) {
     url: "/artist/list",
     params: {
       limit,
-
     }
   })
 }

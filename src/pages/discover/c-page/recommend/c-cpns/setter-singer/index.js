@@ -8,6 +8,8 @@ import { getSizeImage } from '@/utils/format-utils'
 
 export default memo(function YQSetterSinger() {
 
+
+
   //redux- hooks
   const dispatch = useDispatch()
   const state = useSelector(state => ({
@@ -21,8 +23,16 @@ export default memo(function YQSetterSinger() {
   }, [dispatch])
 
   //other handle
-  const { setterSingers = [] } = state
-  console.log(setterSingers)
+
+  // const ad = useEffect(() => {
+  //   const adc = []
+  //   const { setterSingers } = state
+  //   adc.push(setterSingers)
+  //   return adc
+  // })
+  const { setterSingers = [] } = state.setterSingers
+
+
   return (
     <WarpperSetterSinger>
       <YQThemeHeaderSmall title="入驻歌手" more="查看全部 >"></YQThemeHeaderSmall>
@@ -33,12 +43,13 @@ export default memo(function YQSetterSinger() {
               <a href="/singer" key={item.id} className="item">
                 <img src={getSizeImage(item.img1v1Url, 62)} alt="" />
                 <div className="info">
-                  <div className="title">{item.alias.join(" ") || item.name}</div>
+                  <div className="title">{item.alias}</div>
                   <div className="name">{item.name}</div>
                 </div>
               </a>
             )
           })
+
 
         }
       </div>
@@ -47,4 +58,6 @@ export default memo(function YQSetterSinger() {
       </div>
     </WarpperSetterSinger>
   )
+
+
 })

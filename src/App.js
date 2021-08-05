@@ -6,6 +6,7 @@ import routes from './router';
 import store from './store';
 import YQAppFooter from "@/components/app-footer";
 import YQAppHeader from "@/components/app-header"
+import YQPlayer from '@/pages/player'
 
 export default memo(function App() {
   return (
@@ -15,7 +16,9 @@ export default memo(function App() {
         <YQAppHeader></YQAppHeader>
         {renderRoutes(routes)}
         <YQAppFooter></YQAppFooter>
+        <YQPlayer></YQPlayer>
       </HashRouter>
+
     </Provider>
 
   )
