@@ -8,35 +8,27 @@ import { getSizeImage } from '@/utils/format-utils'
 
 export default memo(function YQSetterSinger() {
 
-
-
-  //redux- hooks
-  const dispatch = useDispatch()
-  const state = useSelector(state => ({
-    setterSingers: state.getIn(["recommend", "setterSingers"])
-  }), shallowEqual)
-
   //hooks
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSingerAction(5))
-
   }, [dispatch])
+
+  //redux- hooks
+
+  const state = useSelector(async state => ({
+    setterSingers: await state.getIn(["recommend", "setterSingers"])
+  }), shallowEqual)
 
   //other handle
 
-  // const ad = useEffect(() => {
-  //   const adc = []
-  //   const { setterSingers } = state
-  //   adc.push(setterSingers)
-  //   return adc
-  // })
-  const { setterSingers = [] } = state.setterSingers
-
+  const { setterSingers = [] } = state
 
   return (
     <WarpperSetterSinger>
       <YQThemeHeaderSmall title="入驻歌手" more="查看全部 >"></YQThemeHeaderSmall>
       <div className="singer-list">
+
         {
           setterSingers.map((item, index) => {
             return (
@@ -49,9 +41,8 @@ export default memo(function YQSetterSinger() {
               </a>
             )
           })
-
-
         }
+
       </div>
       <div className="apply-for">
         <a href="/todo">申请成为网易音乐人</a>
