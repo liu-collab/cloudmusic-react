@@ -96,9 +96,9 @@ const changeSingerAction = (res) => ({
   type: actionsTypes.CHANGE_SINGER,
   setterSingers: res.artists
 })
-export const getSingerAction = () => {
+export const getSingerAction = (limit) => {
   return dispatch => {
-    getArtistList(5, 5001).then(res => {
+    getArtistList(limit).then(res => {
       dispatch(changeSingerAction(res))
     })
   }
