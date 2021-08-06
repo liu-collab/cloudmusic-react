@@ -120,6 +120,7 @@ export const Operator = styled.div`
     width: 25px;
     height: 25px;
     cursor: pointer;
+ 
   }
 
   .left{
@@ -128,13 +129,22 @@ export const Operator = styled.div`
   top: -15px;
   .icn{
     background-position: 0 0;
+    :hover {
+      background-position: 0 -25px;
+    }
   }
     .favor {
     background-position: -88px -163px;
+     :hover {
+      background-position:-88px -189px;
+    }
   }
 
   .share {
     background-position: -114px -163px;
+      :hover {
+      background-position:-114px -189px;
+    }
   }
   }
 
@@ -148,6 +158,9 @@ export const Operator = styled.div`
 
     .volume {
       background-position: -2px -248px;
+       :hover {
+      background-position:-31px -248px;
+    }
     }
 
     .loop {
@@ -161,11 +174,17 @@ export const Operator = styled.div`
         return "-3px -344px"
     }
   }};
+      :hover {
+      background-position: -33px  -344px;
+    }
     }
 
     .playlist {
       width: 59px;
       background-position: -42px -68px;
+        :hover {
+      background-position: -42px -98px;
+    }
     }
   }
 `
