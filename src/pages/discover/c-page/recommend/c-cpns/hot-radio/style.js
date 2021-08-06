@@ -6,7 +6,7 @@ padding: 20px;
   height: 40px;
  margin: 10px 0;
   display: flex;
-  text-decoration: none;
+   text-decoration: none;
 
   img {
  
@@ -16,11 +16,14 @@ padding: 20px;
   .info {
    margin-left: 10px;
    span {
+
      font-size: 12px;
      font-weight: 900;
      color: #000000;
+  
    }
    p {
+     
     
    }
   }
