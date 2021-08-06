@@ -19,20 +19,40 @@ export default memo(function YQPlayNavbar() {
         <PlayInfo>
           <div className="image">
             <NavLink to="/discover/player">
-              <img src={getSizeImage()} alt="" />
+              <img src="http://p3.music.126.net/Bs04WWcGHYYj13DhlBsBgQ==/109951166177469818.jpg?param=34y34" alt="" />
             </NavLink>
           </div>
           <div className="info">
-            <div className="songer">歌曲名字</div>
+            <div className="song">
+              <a href="/#" className="song-name"> 红豆</a>
+              <a href="/#" className="singer-name">啊啊啊 </a>
+            </div>
             <div className="progress">
               <Slider>
 
               </Slider>
+              <div className="time">
+                <span className="now-time">0:0</span>
+                <span className="divider">/</span>
+                <span className="duration">4:30</span>
+              </div>
             </div>
-            <div className="time">0:0/4:30</div>
           </div>
         </PlayInfo>
-        <Operator>333</Operator>
+        <Operator>
+          <div>
+            <div className="left">
+              <button className="play_info btn icn"></button>
+              <button className="sprite_player btn favor"></button>
+              <button className="sprite_player btn share"></button>
+            </div>
+            <div className="right sprite_player">
+              <button className="sprite_player btn volume"></button>
+              <button className="sprite_player btn loop" ></button>
+              <button className="sprite_player btn playlist"></button>
+            </div>
+          </div>
+        </Operator>
       </div>
     </WarpperPlayBar>
   )
