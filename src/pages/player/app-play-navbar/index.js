@@ -56,11 +56,11 @@ export default memo(function YQPlayNavbar() {
   //  const progress = currentTime / duration * 100
 
   //other handle
-  const playMusic = () => {
+  const playMusic = useCallback(() => {
 
     isPlaying ? audioRef.current.pause() : audioRef.current.play()
     setIsPlaying(!isPlaying)
-  }
+  }, [isPlaying])
 
   //获取播放歌曲时间
   const playTime = (e) => {
@@ -85,7 +85,11 @@ export default memo(function YQPlayNavbar() {
     audioRef.current.currentTime = currentTime
     setCurrentTime(currentTime)
     setIsChange(false)
-  }, [duration])
+
+    if (!isPlaying) {
+      playMusic()
+    }
+  }, [duration, isPlaying, playMusic])
 
   return (
     <WarpperPlayBar className="sprite_player">

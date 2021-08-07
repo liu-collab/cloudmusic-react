@@ -8,6 +8,7 @@ import Djradio from '@/pages/discover/c-page/djradio'
 import Ranking from '@/pages/discover/c-page/ranking'
 import Songs from '@/pages/discover/c-page/songs'
 import Artist from '@/pages/discover/c-page/artist'
+import YQPlayer from '@/pages/player'
 import { Redirect } from 'react-router-dom'
 
 const routes = [
@@ -47,6 +48,10 @@ const routes = [
       {
         path: "/discover/songs",
         component: Songs
+      },
+      {
+        path: "/discover/player",
+        component: YQPlayer
       }
     ]
   },
