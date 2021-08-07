@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState, useCallback } from 'react'
 import { getSizeImage, formatDate, getPlaySong } from '@/utils/format-utils'
 
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -14,6 +14,9 @@ export default memo(function YQPlayNavbar() {
 
 
   const [currentTime, setCurrentTime] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [isChange, setIsChange] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   //redux-hooks
   const dispatch = useDispatch()
@@ -27,7 +30,11 @@ export default memo(function YQPlayNavbar() {
     dispatch(getSongDetailAction(167876))
   }, [dispatch])
 
+  useEffect(() => {
+    //根据获取到的歌曲链接利用歌曲id进行播放歌曲
+    audioRef.current.src = getPlaySong(currentSong.id)
 
+  }, [currentSong])
 
 
   //test
@@ -46,24 +53,44 @@ export default memo(function YQPlayNavbar() {
   const showDuration = formatDate(duration, "mm:ss")
   const showPlayTime = formatDate(currentTime, "mm:ss")
   //进度条
-  const progress = currentTime / duration * 100
+  //  const progress = currentTime / duration * 100
 
   //other handle
   const playMusic = () => {
-    //根据获取到的歌曲链接利用歌曲id进行播放歌曲
-    audioRef.current.src = getPlaySong(currentSong.id)
-    audioRef.current.play()
+
+    isPlaying ? audioRef.current.pause() : audioRef.current.play()
+    setIsPlaying(!isPlaying)
   }
 
   //获取播放歌曲时间
   const playTime = (e) => {
     const currentTime = e.target.currentTime
-    setCurrentTime(currentTime * 1000)
+
+    if (!isChange) {
+      setCurrentTime(currentTime * 1000)
+      setProgress((currentTime * 1000) / duration * 100)
+    }
   }
+
+  const sliderChange = useCallback((value) => {
+    setProgress(value)
+    const currentTime = value / 100 * duration / 1000
+    setCurrentTime(currentTime * 1000)
+    setIsChange(true)
+
+  }, [duration])
+  const sliderAfterChange = useCallback(value => {
+
+    const currentTime = value / 100 * duration / 1000
+    audioRef.current.currentTime = currentTime
+    setCurrentTime(currentTime)
+    setIsChange(false)
+  }, [duration])
+
   return (
     <WarpperPlayBar className="sprite_player">
       <div className="content wrap-v2">
-        <Control>
+        <Control isPlaying={isPlaying} >
           <button className="sprite_player  prev"></button>
           <button className="sprite_player  play" onClick={e => playMusic()} ></button>
           <button className="sprite_player  next"></button>
@@ -80,9 +107,14 @@ export default memo(function YQPlayNavbar() {
               <a href="/#" className="singer-name">{SingerName} </a>
             </div>
             <div className="progress">
-              <Slider value={progress}>
+              <Slider
 
-              </Slider>
+                value={progress}
+                onChange={sliderChange}
+                onAfterChange={sliderAfterChange}  >
+
+
+              </Slider >
               <div className="time">
                 <span className="now-time">{showPlayTime}</span>
                 <span className="divider">/</span>
