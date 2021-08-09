@@ -15,6 +15,11 @@ width: 206px;
   height: 198px;
   justify-content: center;
   align-items: center;
+  img {
+    position: relative;
+    top: -2px;
+    left: 4px;
+  }
 
   .cover{
      background-position: -140px -580px;
@@ -46,4 +51,29 @@ width: 206px;
 
 export const PlayInfoRight = styled.div`
 width: 414px;
+margin-left: 20px;
+
+.header{
+  display: flex;
+  align-items: center;
+  i {
+     display: inline-block;
+      width: 54px;
+      height: 24px;
+      background-position: 0 -463px;
+  }
+  .title {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
+
+.singer , .album {
+  margin: 10px;
+  a {
+      margin-left: 5px;
+      color: #0c73c2;
+  }
+}
 `
