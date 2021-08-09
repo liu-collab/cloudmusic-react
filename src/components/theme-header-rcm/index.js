@@ -21,7 +21,7 @@ const YQThemeHeaderRCM = memo(function (props) {
         </div>
       </div>
       <div className="right">
-        <div to={morelink}>更多</div>
+        <a href={morelink}>更多</a>
         <i className="icon sprite_02"></i>
       </div>
 

@@ -1,4 +1,49 @@
 import styled from "styled-components";
 
 export const WrapperPlayInfo = styled.div`
+display: flex;
+padding:47px 30px 40px 39px ;
+`
+
+export const PlayInfoLeft = styled.div`
+width: 206px;
+
+.image{
+  position: relative;
+  display: flex;
+  width: 198px;
+  height: 198px;
+  justify-content: center;
+  align-items: center;
+
+  .cover{
+     background-position: -140px -580px;
+     right: -6px;
+     top: -6px;
+     width: 206px;
+     height: 205px;
+  }
+}
+
+  .link {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 20px;
+   i {
+     display: inline-block;
+     width: 16px;
+     height: 16px;
+      background-position: -34px -863px;
+   }
+   a {
+     color:  #0c73c2;
+     text-decoration: underline;
+   }
+  }
+ 
+`
+
+export const PlayInfoRight = styled.div`
+width: 414px;
 `
