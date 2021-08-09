@@ -2,21 +2,22 @@ import { getSongDetail, getLyric } from "@/services/player"
 
 import * as actionsType from './constants'
 
-
+import { parseLyric } from '@/utils/lrc-parse'
 const changeSongDetailAction = (currentSong) => ({
   type: actionsType.CHANGE_SONG_DETAIL,
   currentSong
 }
 )
 
-const changeLyricAction = (res) => ({
+const changeLyricAction = (lyric) => ({
   type: actionsType.CHANGE_LYRIC,
-  currentLyrics: res
+  lyric
 })
 
 export const getSongDetailAction = (ids) => {
   return dispatch => {
     getSongDetail(ids).then(res => {
+
       dispatch(changeSongDetailAction(res.songs[0]))
     })
   }
@@ -27,7 +28,9 @@ export const getSongDetailAction = (ids) => {
 export const getLyricAction = (id) => {
   return dispatch => {
     getLyric(id).then(res => {
-      dispatch(changeLyricAction(res))
+      const lyricing = res.lrc.lyric
+      const lyric = parseLyric(lyricing)
+      dispatch(changeLyricAction(lyric))
     })
   }
 }

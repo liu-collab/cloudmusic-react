@@ -76,4 +76,24 @@ margin-left: 20px;
       color: #0c73c2;
   }
 }
+.Lyric {
+  margin: 13px 0 0;
+  .text{
+    margin-top: 5px;
+  }
+}
+.lyric-control{
+  position: relative;
+  text-decoration: underline;
+  color: #0c73c2;
+  background-color: #fff;
+  i{
+      position: absolute;
+      width: 11px;
+      height: 8px;
+      right: -8px;
+      top: 5px;
+      background-position: ${props => props.isSpread ? "-45px" : "-65px"} -520px;
+  }
+}
 `

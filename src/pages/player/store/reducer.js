@@ -11,7 +11,7 @@ function reducer(state = defaultState, action) {
     case actionsType.CHANGE_SONG_DETAIL:
       return state.set("currentSong", action.currentSong)
     case actionsType.CHANGE_LYRIC:
-      return state.set("currentLyrics", action.currentLyrics)
+      return state.set("currentLyrics", action.lyric)
     default:
       return state
   }
