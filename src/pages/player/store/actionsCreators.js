@@ -53,7 +53,10 @@ export const getPlayListAction = () => {
     const id = getState().getIn(["player", "currentSong"]).id
     if (!id) return
     getPlayList(id).then(res => {
-      dispatch(changePlayListAction(res))
+
+      setTimeout(() => {
+        dispatch(changePlayListAction(res))
+      }, 100)
     })
   }
 }
