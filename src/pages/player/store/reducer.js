@@ -4,6 +4,7 @@ import * as actionsType from './constants'
 const defaultState = Map({
   currentSong: [],
   currentLyrics: [],
+  simiPlayList: [],
 })
 
 function reducer(state = defaultState, action) {
@@ -12,6 +13,8 @@ function reducer(state = defaultState, action) {
       return state.set("currentSong", action.currentSong)
     case actionsType.CHANGE_LYRIC:
       return state.set("currentLyrics", action.lyric)
+    case actionsType.CHANGE_PLAY_LIST:
+      return state.set("simiPlayList", action.simiPlayList)
     default:
       return state
   }

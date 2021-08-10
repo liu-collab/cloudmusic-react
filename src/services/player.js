@@ -18,3 +18,12 @@ export function getLyric(id) {
     }
   })
 }
+
+export function getPlayList(id) {
+  return request({
+    url: "/simi/playlist",
+    params: {
+      id
+    }
+  })
+}
