@@ -1,4 +1,4 @@
-import { getSongDetail, getLyric, getPlayList } from "@/services/player"
+import { getSongDetail, getLyric, getPlayList, getSimiSong } from "@/services/player"
 
 import * as actionsType from './constants'
 
@@ -14,10 +14,15 @@ const changeLyricAction = (lyric) => ({
   type: actionsType.CHANGE_LYRIC,
   lyric
 })
-
+//相似歌单
 const changePlayListAction = (res) => ({
   type: actionsType.CHANGE_PLAY_LIST,
   simiPlayList: res.playlists
+})
+//相似歌曲
+const changeSimiSongsAction = (res) => ({
+  type: actionsType.CHANGR_SIMI_SONG,
+  simiSongs: res.songs
 })
 //歌曲
 export const getSongDetailAction = (ids) => {
@@ -40,7 +45,7 @@ export const getLyricAction = (id) => {
   }
 }
 
-//播放列表
+//播放歌单
 
 export const getPlayListAction = () => {
   return (dispatch, getState) => {
@@ -48,8 +53,19 @@ export const getPlayListAction = () => {
     const id = getState().getIn(["player", "currentSong"]).id
     if (!id) return
     getPlayList(id).then(res => {
-
       dispatch(changePlayListAction(res))
+    })
+  }
+}
+
+//相似歌曲
+
+export const getSimiSongAction = () => {
+  return (dispatch, getState) => {
+    const id = getState().getIn(["player", "currentSong"]).id
+    if (!id) return
+    getSimiSong(id).then(res => {
+      dispatch(changeSimiSongsAction(res))
     })
   }
 }
