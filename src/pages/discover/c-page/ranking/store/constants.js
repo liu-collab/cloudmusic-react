@@ -1,1 +1,3 @@
 export const CHANGR_RANK_TOP_LIST = "rank/CHANGR_RANK_TOP_LIST"
+
+export const CHANGE_RANK_LIST = "rank/CHANGE_RANK_LIST"

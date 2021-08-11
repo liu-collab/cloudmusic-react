@@ -6,3 +6,12 @@ export function getTopList() {
     url: "/toplist"
   })
 }
+
+export function getRankingList(id) {
+  return request({
+    url: "/playlist/detail",
+    params: {
+      id
+    }
+  })
+}

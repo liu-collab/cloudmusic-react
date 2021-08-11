@@ -2,7 +2,8 @@ import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 
-import { getTopListAction } from '../../store/actionsCreators'
+import { getRankingListAction } from '../../store/actionsCreators'
+
 export default memo(function YQTopRank() {
 
   const state = useSelector(state => ({
@@ -11,8 +12,10 @@ export default memo(function YQTopRank() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getTopListAction())
-  }, [dispatch])
+    // dispatch(getTopListAction())
+    const id = state.topList[0] && state.topList[0].id
+    dispatch(getRankingListAction(id))
+  }, [dispatch, state])
 
   console.log(state)
   return (
