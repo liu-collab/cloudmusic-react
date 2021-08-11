@@ -95,7 +95,7 @@ export default memo(function YQPlayNavbar() {
     <WarpperPlayBar className="sprite_player">
       <div className="content wrap-v2">
         <Control isPlaying={isPlaying} >
-          <button className="sprite_player  prev"></button>
+          <button className="sprite_player  prev" ></button>
           <button className="sprite_player  play" onClick={e => playMusic()} ></button>
           <button className="sprite_player  next"></button>
         </Control>

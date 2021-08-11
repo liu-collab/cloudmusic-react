@@ -3,8 +3,14 @@
 import * as actionsTypes from './constants.js'
 
 
-import { getTopBanners, getHotRecommend, getNewAlbum, getTopList } from '@/services/recommend.js'
-import { getArtistList } from '../../../../../services/recommend.js'
+import {
+  getTopBanners,
+  getHotRecommend,
+  getNewAlbum,
+  getTopList,
+  getArtistList
+} from '@/services/recommend.js'
+
 
 
 
