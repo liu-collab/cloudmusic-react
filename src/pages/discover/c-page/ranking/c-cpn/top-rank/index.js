@@ -4,6 +4,8 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 import { getRankingListAction } from '../../store/actionsCreators'
 
+
+import { WrapperTopRank } from './style'
 export default memo(function YQTopRank() {
 
   const state = useSelector(state => ({
@@ -19,8 +21,8 @@ export default memo(function YQTopRank() {
 
   console.log(state)
   return (
-    <div>
+    <WrapperTopRank>
       <h2>YQTopRank</h2>
-    </div>
+    </WrapperTopRank>
   )
 })

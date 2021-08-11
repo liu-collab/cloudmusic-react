@@ -1,11 +1,14 @@
 import React, { memo } from 'react'
-import { useSelector } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
+
+
+import { WrapperRankList } from './style'
 export default memo(function YQRankList() {
 
 
   const state = useSelector(state => ({
     rankingList: state.getIn(["ranking", "rankingList"])
-  }))
+  }), shallowEqual)
   console.log(state)
   //const dispatch = useDispatch()
 
@@ -13,8 +16,8 @@ export default memo(function YQRankList() {
   //  // dispatch(getRankingListAction())
   // })
   return (
-    <div>
+    <WrapperRankList>
       <h2>YQRankList</h2>
-    </div>
+    </WrapperRankList>
   )
 })
