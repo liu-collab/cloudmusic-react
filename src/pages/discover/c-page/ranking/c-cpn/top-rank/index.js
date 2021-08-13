@@ -9,17 +9,20 @@ import { WrapperTopRank } from './style'
 export default memo(function YQTopRank() {
 
   const state = useSelector(state => ({
-    topList: state.getIn(["ranking", "topList"])
+    topList: state.getIn(["ranking", "topList"]),
+    currentIndex: state.getIn(["ranking", "currentIndex"])
   }), shallowEqual)
+  const currentIndex = state.currentIndex
   const dispatch = useDispatch()
 
   useEffect(() => {
     // dispatch(getTopListAction())
-    const id = state.topList[0] && state.topList[0].id
+    const id = state.topList[currentIndex] && state.topList[currentIndex].id
+    if (!id) return
     dispatch(getRankingListAction(id))
-  }, [dispatch, state])
+  }, [dispatch, state, currentIndex])
 
-  console.log(state)
+  // console.log(state)
   return (
     <WrapperTopRank>
       <h2>YQTopRank</h2>

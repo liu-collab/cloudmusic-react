@@ -19,13 +19,15 @@ export default memo(function Ranking() {
   }, [dispatch])
   return (
     <WrapperRanking className="wrap-v2">
-      <RankingRight>
-        <YQTopRank></YQTopRank>
-      </RankingRight>
       <RankingLeft>
-        <YQRankHeader></YQRankHeader>
+
         <YQRankList></YQRankList>
       </RankingLeft>
+      <RankingRight>
+        <YQRankHeader></YQRankHeader>
+        <YQTopRank></YQTopRank>
+      </RankingRight>
+
     </WrapperRanking>
   )
 })

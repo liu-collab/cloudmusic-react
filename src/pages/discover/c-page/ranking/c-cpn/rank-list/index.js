@@ -9,7 +9,7 @@ export default memo(function YQRankList() {
   const state = useSelector(state => ({
     rankingList: state.getIn(["ranking", "rankingList"])
   }), shallowEqual)
-  console.log(state)
+
   //const dispatch = useDispatch()
 
   // useEffect(() => {
