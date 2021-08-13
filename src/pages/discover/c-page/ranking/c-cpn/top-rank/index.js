@@ -4,7 +4,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getSizeImage } from '@/utils/format-utils'
 
 
-import { getRankingListAction } from '../../store/actionsCreators'
+import { getRankingListAction, changeCurrentIndex } from '../../store/actionsCreators'
 
 
 import { WrapperTopRank } from './style'
@@ -26,6 +26,13 @@ export default memo(function YQTopRank() {
   }, [dispatch, state, currentIndex])
 
   // console.log(state)
+
+  //other handle
+  const handleClick = (index) => {
+    dispatch(changeCurrentIndex(index))
+    const id = state.topList[currentIndex].id
+    dispatch(getRankingListAction(id))
+  }
   return (
     <WrapperTopRank>
       {
@@ -37,7 +44,9 @@ export default memo(function YQTopRank() {
           return (
             <div key={item.id}>
               {header}
-              <div className={classNames("item", { "active": index === currentIndex })}>
+              <div className={classNames("item", { "active": index === currentIndex })}
+                onClick={e => handleClick(index)}
+              >
                 <img src={getSizeImage(item.coverImgUrl, 40)} alt="" />
                 <div className="info">
                   <div className="name">{item.name}</div>
