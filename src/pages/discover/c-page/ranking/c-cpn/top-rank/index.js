@@ -1,5 +1,7 @@
 import React, { memo, useEffect } from 'react'
+import classNames from "classnames"
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { getSizeImage } from '@/utils/format-utils'
 
 
 import { getRankingListAction } from '../../store/actionsCreators'
@@ -35,7 +37,14 @@ export default memo(function YQTopRank() {
           return (
             <div key={item.id}>
               {header}
+              <div className={classNames("item", { "active": index === currentIndex })}>
+                <img src={getSizeImage(item.coverImgUrl, 40)} alt="" />
+                <div className="info">
+                  <div className="name">{item.name}</div>
+                  <div className="update">{item.updateFrequency}</div>
+                </div>
 
+              </div>
             </div>
           )
         })
