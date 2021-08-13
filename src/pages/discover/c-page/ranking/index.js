@@ -20,12 +20,12 @@ export default memo(function Ranking() {
   return (
     <WrapperRanking className="wrap-v2">
       <RankingLeft>
+        <YQTopRank></YQTopRank>
 
-        <YQRankList></YQRankList>
       </RankingLeft>
       <RankingRight>
         <YQRankHeader></YQRankHeader>
-        <YQTopRank></YQTopRank>
+        <YQRankList></YQRankList>
       </RankingRight>
 
     </WrapperRanking>

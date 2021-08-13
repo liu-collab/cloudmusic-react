@@ -13,6 +13,7 @@ export default memo(function YQTopRank() {
     currentIndex: state.getIn(["ranking", "currentIndex"])
   }), shallowEqual)
   const currentIndex = state.currentIndex
+  const topList = state.topList
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,7 +26,20 @@ export default memo(function YQTopRank() {
   // console.log(state)
   return (
     <WrapperTopRank>
-      <h2>YQTopRank</h2>
+      {
+        topList.map((item, index) => {
+          let header
+          if (index === 0 || index === 4) {
+            header = <div className="header">{index === 0 ? "云音乐特色榜" : "全球媒体榜"}</div>
+          }
+          return (
+            <div key={item.id}>
+              {header}
+
+            </div>
+          )
+        })
+      }
     </WrapperTopRank>
   )
 })
