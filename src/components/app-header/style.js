@@ -35,6 +35,7 @@ display:flex ;
         padding: 0 20px;
         color: #ccc;
       }
+      
 
       :last-of-type a {
         position: relative;
