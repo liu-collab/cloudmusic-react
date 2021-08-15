@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
 
+import { WrapperSong } from './style'
 export default memo(function Songs() {
   return (
-    <div>
+    <WrapperSong>
       <h2>Songs</h2>
-    </div>
+    </WrapperSong>
   )
 })
