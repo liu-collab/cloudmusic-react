@@ -5,6 +5,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { getSongDetailAction } from '../store/actionsCreators'
 
 import { WarpperPlayBar, Control, PlayInfo, Operator } from './style'
+import YQPlayPanel from '../app-play-panel'
 
 import { Slider } from 'antd'
 import { NavLink } from 'react-router-dom'
@@ -17,6 +18,7 @@ export default memo(function YQPlayNavbar() {
   const [progress, setProgress] = useState(0)
   const [isChange, setIsChange] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [showPanel, setShowPanel] = useState(false)
 
   //redux-hooks
   const dispatch = useDispatch()
@@ -135,12 +137,14 @@ export default memo(function YQPlayNavbar() {
             <div className="right sprite_player">
               <button className="sprite_player btn volume"></button>
               <button className="sprite_player btn loop" ></button>
-              <button className="sprite_player btn playlist"></button>
+              <button className="sprite_player btn playlist" 
+              onClick={e=>setShowPanel(!showPanel)}></button>
             </div>
           </div>
         </Operator>
       </div>
       <audio ref={audioRef} onTimeUpdate={e => playTime(e)}></audio>
+     {showPanel &&  <YQPlayPanel/> }
     </WarpperPlayBar>
   )
 })

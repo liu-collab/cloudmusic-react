@@ -1,5 +1,5 @@
-@import '~normalize.css';
-@import '~antd/dist/antd.css';
+@import "~normalize.css";
+@import "~antd/dist/antd.css";
 
 /* 样式的重置 */
 body,
@@ -142,6 +142,9 @@ button {
 
 .sprite_player {
   background: url(../img/playbar_sprite.png) no-repeat 0 9999px;
+}
+.sprite_playlist {
+  background: url(../img/playlist_sprite.png) no-repeat 0 9999px;
 }
 .play_info {
   background: url(../img/play.png) no-repeat 0 9999px;

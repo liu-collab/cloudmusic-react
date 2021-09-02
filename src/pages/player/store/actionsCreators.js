@@ -9,6 +9,8 @@ const changeSongDetailAction = (currentSong) => ({
   currentSong
 }
 )
+//播放列表
+
 //歌词
 const changeLyricAction = (lyric) => ({
   type: actionsType.CHANGE_LYRIC,
@@ -16,7 +18,7 @@ const changeLyricAction = (lyric) => ({
 })
 //相似歌单
 const changePlayListAction = (res) => ({
-  type: actionsType.CHANGE_PLAY_LIST,
+  type: actionsType.CHANGE_SIMI_PLAY_LIST,
   simiPlayList: res.playlists
 })
 //相似歌曲
