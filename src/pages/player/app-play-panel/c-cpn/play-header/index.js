@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { useSelector } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
 
 import {WrapperHeader , HeaderLeft , HeaderRight } from './style'
 
@@ -7,7 +7,7 @@ export default memo(function YQPlayHeader() {
   const {playList , currentSong} = useSelector(state=>({
     playList:state.getIn(['player' ,'playList']),
     currentSong:state.getIn(['player'  , 'currentSong']) 
-  }))
+  }),shallowEqual)
   
   return (
     <WrapperHeader>
