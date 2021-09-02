@@ -71,7 +71,7 @@ export default memo(function YQPlayNavbar() {
       setProgress((currentTime * 1000) / duration * 100)
     }
   }
-
+  //进度条改变
   const sliderChange = useCallback((value) => {
     setProgress(value)
     const currentTime = value / 100 * duration / 1000
@@ -79,6 +79,7 @@ export default memo(function YQPlayNavbar() {
     setIsChange(true)
 
   }, [duration])
+  //进度条改变之后
   const sliderAfterChange = useCallback(value => {
 
     const currentTime = value / 100 * duration / 1000
@@ -112,12 +113,9 @@ export default memo(function YQPlayNavbar() {
             </div>
             <div className="progress">
               <Slider
-
                 value={progress}
                 onChange={sliderChange}
                 onAfterChange={sliderAfterChange}  >
-
-
               </Slider >
               <div className="time">
                 <span className="now-time">{showPlayTime}</span>
