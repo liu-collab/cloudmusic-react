@@ -11,8 +11,8 @@ import YQDownload from './c-cpn/download'
 
 
 
-
 export default memo(function YQPlayer() {
+
   return (
     <WarpperPlayer>
       <div className="content wrap-v2">
