@@ -174,13 +174,15 @@ export const Operator = styled.div`
         return "-3px -344px"
     }
   }};
-      :hover {
-      background-position: -33px  -344px;
-    }
+     
+    
     }
 
     .playlist {
       width: 59px;
+      color: #fff;
+   
+     
       background-position: -42px -68px;
         :hover {
       background-position: -42px -98px;

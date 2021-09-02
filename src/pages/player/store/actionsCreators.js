@@ -3,6 +3,7 @@ import { getSongDetail, getLyric, getPlayList, getSimiSong } from "@/services/pl
 import * as actionsType from './constants'
 
 import { parseLyric } from '@/utils/lrc-parse'
+import { getRandom } from '@/utils/getRandom'
 //歌曲
 const changeCurrentSongAction = (currentSong) => ({
   type: actionsType.CHANGE_SONG_DETAIL,
@@ -22,6 +23,7 @@ const changePlayListIndexAction= (index)=>({
   type:actionsType.CHANGE_CURRENTINDEX,
   index
 })
+
 //歌词
 const changeLyricAction = (lyric) => ({
   type: actionsType.CHANGE_LYRIC,
@@ -37,6 +39,38 @@ const changeSimiSongsAction = (res) => ({
   type: actionsType.CHANGR_SIMI_SONG,
   simiSongs: res.songs
 })
+//播放顺序
+export const changeSequence = (sequence)=>({
+  type:actionsType.CHANGE_SEQUENCE,
+  sequence
+}) 
+//上一首和下一首
+export const changeMusicAction = (tag)=>{  //需要根据播放的顺序来播放上一首和下一首歌曲
+  return (dispatch , getState) => {
+     const sequence = getState().getIn(['player' , 'sequence'])
+     const playList = getState().getIn(['player' , 'playList'])
+     let currentSongIndex = getState().getIn(['player' , 'currentSongIndex'])
+
+     //判断播放顺序
+     switch(sequence){
+       case 1:  //随机播放
+        let randomIndex =  -1
+        while (randomIndex ===currentSongIndex){
+          randomIndex = getRandom(playList.length)
+        }
+        currentSongIndex = randomIndex
+        break;
+      default:  //顺序播放
+         currentSongIndex += tag
+         if(currentSongIndex>= playList.length) currentSongIndex = 0 
+         if(currentSongIndex<0) currentSongIndex = playList.length -1
+     }
+    //改变歌曲
+    const currentSong = playList[currentSongIndex]
+    dispatch(changeCurrentSongAction(currentSong))
+    dispatch(changeCurrentSongIndexAction(currentSongIndex))
+  }
+}
 //获取歌曲
 export const getSongDetailAction = (ids) => {
   return (dispatch ,getState) => {

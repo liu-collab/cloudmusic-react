@@ -212,6 +212,7 @@ const defaultState = Map({
   currentLyricsIndex:[],
   simiPlayList: [],
   simiSongs: [],
+  sequence:0 //播放的顺序 0 1 2 
 })
 
 function reducer(state = defaultState, action) {
@@ -230,6 +231,8 @@ function reducer(state = defaultState, action) {
       return state.set('currentSongIndex' ,action.index)
     case actionsType.CHANGE_LYRIC_INDEX:
       return state.set('currentLyricsIndex' , action.index)
+    case actionsType.CHANGE_SEQUENCE:
+      return state.set('sequence' , action.sequence)
     default:
       return state
   }

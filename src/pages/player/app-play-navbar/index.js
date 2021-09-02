@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, useState, useCallback } from 'react'
 import { getSizeImage, formatDate, getPlaySong } from '@/utils/format-utils'
 
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { getSongDetailAction } from '../store/actionsCreators'
+import { getSongDetailAction,changeSequence ,changeMusicAction } from '../store/actionsCreators'
 
 import { WarpperPlayBar, Control, PlayInfo, Operator } from './style'
 import YQPlayPanel from '../app-play-panel'
@@ -22,8 +22,10 @@ export default memo(function YQPlayNavbar() {
 
   //redux-hooks
   const dispatch = useDispatch()
-  const { currentSong } = useSelector(state => ({
-    currentSong: state.getIn(["player", "currentSong"])
+  const { currentSong  ,sequence , playList} = useSelector(state => ({
+    currentSong: state.getIn(["player", "currentSong"]),
+    sequence:state.getIn(['player' , 'sequence']),
+    playList:state.getIn(['player' , 'playList'])
   }), shallowEqual)
 
   //other hooks
@@ -35,7 +37,11 @@ export default memo(function YQPlayNavbar() {
   useEffect(() => {
     //根据获取到的歌曲链接利用歌曲id进行播放歌曲
     audioRef.current.src = getPlaySong(currentSong.id)
-
+    audioRef.current.play().then(res=>{
+      setIsPlaying(true)
+    }).catch(err=>{
+      setIsPlaying(false)
+    })
   }, [currentSong])
 
 
@@ -48,7 +54,7 @@ export default memo(function YQPlayNavbar() {
 
   //other handle
   //取值时进行判断,确保值不会为undefined
-  const picUrl = (currentSong.al && currentSong.al.picUrl) || " "
+  const picUrl = (currentSong.al && currentSong.al.picUrl) || ""
   const SongName = (currentSong && currentSong.name) || "未知歌曲"
   const SingerName = (currentSong.ar && currentSong.ar[0].name) || "未知歌手"
   const duration = currentSong.dt || 0
@@ -72,6 +78,30 @@ export default memo(function YQPlayNavbar() {
       setCurrentTime(currentTime * 1000)
       setProgress((currentTime * 1000) / duration * 100)
     }
+  }
+
+  //改变播放的顺序
+  const changeLoop = ()=>{
+    let currentSequence = sequence +1 
+    if(currentSequence > 2 ){
+      currentSequence = 0 
+     
+    }
+     dispatch(changeSequence(currentSequence))
+  }
+  //上一首和下一首
+  const changeMusic = (tag)=>{
+    dispatch(changeMusicAction(tag))
+  }
+  //歌曲播放结束之后
+  const handleEnd = ()=>{
+    if(sequence===2) //单曲循环
+   {
+    audioRef.current.currentTime = 0
+    audioRef.current.play()
+   }else {
+     dispatch(changeMusicAction(1))
+   }
   }
   //进度条改变
   const sliderChange = useCallback((value) => {
@@ -98,9 +128,9 @@ export default memo(function YQPlayNavbar() {
     <WarpperPlayBar className="sprite_player">
       <div className="content wrap-v2">
         <Control isPlaying={isPlaying} >
-          <button className="sprite_player  prev" ></button>
+          <button className="sprite_player  prev" onClick={e=>changeMusic(-1)} ></button>
           <button className="sprite_player  play" onClick={e => playMusic()} ></button>
-          <button className="sprite_player  next"></button>
+          <button className="sprite_player  next" onClick={e=>changeMusic(+1)}></button>
         </Control>
         <PlayInfo>
           <div className="image">
@@ -127,7 +157,7 @@ export default memo(function YQPlayNavbar() {
             </div>
           </div>
         </PlayInfo>
-        <Operator>
+        <Operator sequence={sequence}>
           <div>
             <div className="left">
               <button className="play_info btn icn"></button>
@@ -136,14 +166,15 @@ export default memo(function YQPlayNavbar() {
             </div>
             <div className="right sprite_player">
               <button className="sprite_player btn volume"></button>
-              <button className="sprite_player btn loop" ></button>
+              <button className="sprite_player btn loop" 
+              onClick={e=>changeLoop()}></button>
               <button className="sprite_player btn playlist" 
-              onClick={e=>setShowPanel(!showPanel)}></button>
+              onClick={e=>setShowPanel(!showPanel)}>&nbsp;&nbsp;&nbsp;  {playList.length}</button>
             </div>
           </div>
         </Operator>
       </div>
-      <audio ref={audioRef} onTimeUpdate={e => playTime(e)}></audio>
+      <audio ref={audioRef} onTimeUpdate={e => playTime(e)} onEnded = {e=>handleEnd(e)}></audio>
      {showPanel &&  <YQPlayPanel/> }
     </WarpperPlayBar>
   )
