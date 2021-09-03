@@ -2,7 +2,10 @@ import React, { memo, useEffect, useRef, useState, useCallback } from 'react'
 import { getSizeImage, formatDate, getPlaySong } from '@/utils/format-utils'
 
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { getSongDetailAction,changeSequence ,changeMusicAction } from '../store/actionsCreators'
+import { getSongDetailAction,
+  changeSequence ,
+  changeMusicAction ,
+  changeCurrentLyricIndexActiion } from '../store/actionsCreators'
 
 import { WarpperPlayBar, Control, PlayInfo, Operator } from './style'
 import YQPlayPanel from '../app-play-panel'
@@ -22,10 +25,16 @@ export default memo(function YQPlayNavbar() {
 
   //redux-hooks
   const dispatch = useDispatch()
-  const { currentSong  ,sequence , playList} = useSelector(state => ({
+  const { currentSong  ,
+    sequence , 
+    playList , 
+    currentLyrics ,
+    currentLyricsIndex} = useSelector(state => ({
     currentSong: state.getIn(["player", "currentSong"]),
     sequence:state.getIn(['player' , 'sequence']),
-    playList:state.getIn(['player' , 'playList'])
+    playList:state.getIn(['player' , 'playList']),
+    currentLyrics:state.getIn(['player' , 'currentLyrics']),
+    currentLyricsIndex:state.getIn(['player' , 'currentLyricsIndex'])
   }), shallowEqual)
 
   //other hooks
@@ -72,12 +81,25 @@ export default memo(function YQPlayNavbar() {
 
   //获取播放歌曲时间
   const playTime = (e) => {
-    const currentTime = e.target.currentTime
+    const currentTime1 = e.target.currentTime
 
     if (!isChange) {
-      setCurrentTime(currentTime * 1000)
-      setProgress((currentTime * 1000) / duration * 100)
+      setCurrentTime(currentTime1 * 1000)
+      setProgress((currentTime1 * 1000) / duration * 100)
     }
+   
+    let currentLyricsIndex = 0
+    for(let i=0 ; i < currentLyrics.length; i++){
+      let lyricItem = currentLyrics[i]
+      if(currentTime1 * 1000 < lyricItem.time){
+        currentLyricsIndex = i
+        break;
+      } 
+    }
+    if(currentLyricsIndex !== currentLyricsIndex-1){
+     dispatch( changeCurrentLyricIndexActiion(currentLyricsIndex-1))
+    }
+ console.log(currentLyrics[currentLyricsIndex-1])
   }
 
   //改变播放的顺序

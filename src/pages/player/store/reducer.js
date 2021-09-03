@@ -209,7 +209,7 @@ const defaultState = Map({
   currentSong: [],
   currentSongIndex:[],
   currentLyrics: [],
-  currentLyricsIndex:[],
+  currentLyricsIndex:[], 
   simiPlayList: [],
   simiSongs: [],
   sequence:0 //播放的顺序 0 1 2 

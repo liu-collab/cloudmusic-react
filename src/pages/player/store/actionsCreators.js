@@ -44,6 +44,11 @@ export const changeSequence = (sequence)=>({
   type:actionsType.CHANGE_SEQUENCE,
   sequence
 }) 
+//当前播放的歌词
+export const changeCurrentLyricIndexActiion = (index)=>({
+  type:actionsType.CHANGE_LYRIC_INDEX,
+  index
+})
 //上一首和下一首
 export const changeMusicAction = (tag)=>{  //需要根据播放的顺序来播放上一首和下一首歌曲
   return (dispatch , getState) => {
@@ -54,7 +59,7 @@ export const changeMusicAction = (tag)=>{  //需要根据播放的顺序来播�
      //判断播放顺序
      switch(sequence){
        case 1:  //随机播放
-        let randomIndex =  -1
+        let randomIndex =  getRandom(playList.length)
         while (randomIndex ===currentSongIndex){
           randomIndex = getRandom(playList.length)
         }
