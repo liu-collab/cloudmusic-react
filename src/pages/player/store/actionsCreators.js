@@ -69,6 +69,8 @@ export const changeMusicAction = (tag)=>{  //需要根据播放的顺序来播�
     const currentSong = playList[currentSongIndex]
     dispatch(changeCurrentSongAction(currentSong))
     dispatch(changeCurrentSongIndexAction(currentSongIndex))
+    //请求歌词
+    dispatch(getLyricAction(currentSong.id))
   }
 }
 //获取歌曲
@@ -78,16 +80,19 @@ export const getSongDetailAction = (ids) => {
     const playList = getState().getIn(['player' , 'playList'])
     const songIndex =  playList.findIndex(song=>song.id ===ids)
     //2.判断是否找到歌曲 , -1表示没有找到
+    let song = null
     if(songIndex !==-1){  //查找歌曲
 
       dispatch(changeCurrentSongIndexAction(songIndex))
-      const song = playList[songIndex]
+       song = playList[songIndex]
       dispatch(changeCurrentSongAction(song))
+        //3.请求歌词
+    dispatch(getLyricAction(song.id))
 
     }else {
       //获取歌曲数据
        getSongDetail(ids).then(res => {
-    const song = res.songs && res.songs[0]
+     song = res.songs && res.songs[0]
         if(!song) return 
         //将新的歌曲添加到播放列表
         const newPlayList = [...playList]
@@ -97,11 +102,13 @@ export const getSongDetailAction = (ids) => {
       dispatch(changePlayListIndexAction(newPlayList.length -1))
 
       dispatch(changeCurrentSongAction(song))
+        //3.请求歌词
+    
+    dispatch(getLyricAction(song.id))
     })
     }
 
-
-   
+  
   }
 }
 
@@ -109,6 +116,7 @@ export const getSongDetailAction = (ids) => {
 export const getLyricAction = (id) => {
   return dispatch => {
     getLyric(id).then(res => {
+     
       const lyricing = res.lrc.lyric
       const lyric = parseLyric(lyricing)
       dispatch(changeLyricAction(lyric))
@@ -141,3 +149,4 @@ export const getSimiSongAction = () => {
     })
   }
 }
+

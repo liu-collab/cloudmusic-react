@@ -25,13 +25,13 @@ instance.interceptors.response.use(res => {
   if (err && err.response) {
     switch (err.response.status) {
       case 400:
-        console.log("请求错误");
+       alert("请求错误")
         break;
       case 401:
-        console.log("未授权访问");
+       alert("未授权访问")
         break;
       default:
-        console.log("其他错误信息");
+      alert("其他错误信息")
     }
   }
   return err;
