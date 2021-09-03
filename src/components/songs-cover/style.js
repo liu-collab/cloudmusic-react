@@ -39,6 +39,7 @@ export const SongCoverWrapper = styled.div`
           width: 14px;
           height: 11px;
           background-position: 0 -24px;
+          cursor: pointer;
         }
 
         .play {
