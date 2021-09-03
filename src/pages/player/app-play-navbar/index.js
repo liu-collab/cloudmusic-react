@@ -10,7 +10,7 @@ import { getSongDetailAction,
 import { WarpperPlayBar, Control, PlayInfo, Operator } from './style'
 import YQPlayPanel from '../app-play-panel'
 
-import { Slider } from 'antd'
+import { Slider  , message} from 'antd'
 import { NavLink } from 'react-router-dom'
 
 // import { getSongDetail } from '@/services/player'
@@ -29,7 +29,8 @@ export default memo(function YQPlayNavbar() {
     sequence , 
     playList , 
     currentLyrics ,
-    currentLyricsIndex} = useSelector(state => ({
+    currentLyricsIndex
+  } = useSelector(state => ({
     currentSong: state.getIn(["player", "currentSong"]),
     sequence:state.getIn(['player' , 'sequence']),
     playList:state.getIn(['player' , 'playList']),
@@ -88,18 +89,24 @@ export default memo(function YQPlayNavbar() {
       setProgress((currentTime1 * 1000) / duration * 100)
     }
    
-    let currentLyricsIndex = 0
+    let currentLyricsIndex1 = 0
     for(let i=0 ; i < currentLyrics.length; i++){
       let lyricItem = currentLyrics[i]
       if(currentTime1 * 1000 < lyricItem.time){
-        currentLyricsIndex = i
+        currentLyricsIndex1 = i
         break;
       } 
     }
-    if(currentLyricsIndex !== currentLyricsIndex-1){
-     dispatch( changeCurrentLyricIndexActiion(currentLyricsIndex-1))
+    if(currentLyricsIndex !== currentLyricsIndex1-1){
+     dispatch( changeCurrentLyricIndexActiion(currentLyricsIndex1-1))
     }
- console.log(currentLyrics[currentLyricsIndex-1])
+    const content = currentLyrics[currentLyricsIndex1-1] &&currentLyrics[currentLyricsIndex1-1].content
+    message.open({
+      content: content,
+      duration:0,
+      key:'currentLyrics',
+      className:'lyric-class'
+    })
   }
 
   //改变播放的顺序
