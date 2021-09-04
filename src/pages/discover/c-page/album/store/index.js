@@ -1,4 +1,4 @@
-import reducer from "./actioncreators";
+import reducer from "./reducer";
 
 export {
   reducer
