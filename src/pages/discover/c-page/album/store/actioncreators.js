@@ -7,6 +7,15 @@ const changeHotAlbum = (res)=>({
   hotAlbum:res.albums
 }
 )
+const changeAllAlbum = (res)=>({
+  type:actionType.CHANGE_ALL_ALBUM,
+  allAlbum:res.albums
+})
+
+const changeTotal = (total)=>({
+  type:actionType.CHANGE_TOTAL,
+  total
+})
 
 export const getHotAlbumAction = ()=>{
   return dispatch =>{
@@ -15,3 +24,12 @@ export const getHotAlbumAction = ()=>{
    })
   }
 } 
+
+export const getAllAlbumAction = (page)=>{
+  return dispatch =>{
+    getAllAllbum(30,(page-1)*30).then(res=>{
+      dispatch(changeAllAlbum(res))
+      dispatch(changeTotal(res.total))
+    })
+  }
+}
