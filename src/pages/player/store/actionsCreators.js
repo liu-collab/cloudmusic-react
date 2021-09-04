@@ -123,6 +123,7 @@ export const getLyricAction = (id) => {
     getLyric(id).then(res => {
      
       const lyricing = res.lrc.lyric
+     
       const lyric = parseLyric(lyricing)
       dispatch(changeLyricAction(lyric))
     })

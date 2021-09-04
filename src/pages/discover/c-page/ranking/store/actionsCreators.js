@@ -25,7 +25,7 @@ const changeRankingListAction = (res) => ({
 export const getRankingListAction = (id) => {
   return dispatch => {
     getRankingList(id).then(res => {
-      console.log(res)
+     // console.log(res)
       dispatch(changeRankingListAction(res))
     })
   }

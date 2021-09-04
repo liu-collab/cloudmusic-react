@@ -1,9 +1,12 @@
 import React, { memo } from 'react'
 
+
+import { WrapperDjradio } from './style'
+
 export default memo(function YQDjradio() {
   return (
-    <div>
+    <WrapperDjradio>
       <h2>YQDjradio</h2>
-    </div>
+    </WrapperDjradio>
   )
 })
