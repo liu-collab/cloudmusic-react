@@ -1,9 +1,18 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
+
+import YQArtistCategory from "./c-cpns/artist-category";
+import YQArtistList from "./c-cpns/artist-list";
+import { WrapperArtist, ArtistLeft, ArtistRight } from "./style";
 
 export default memo(function Aritist() {
   return (
-    <div>
-      <h2>Aritist</h2>
-    </div>
-  )
-})
+    <WrapperArtist className="wrap-v2">
+      <ArtistLeft>
+        <YQArtistCategory></YQArtistCategory>
+      </ArtistLeft>
+      <ArtistRight>
+        <YQArtistList></YQArtistList>
+      </ArtistRight>
+    </WrapperArtist>
+  );
+});
