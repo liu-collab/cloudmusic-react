@@ -3,7 +3,7 @@ import { Map } from "immutable";
 import * as actionType from "./constans";
 
 const defaultState = Map({
-  currentArea: 7,
+  currentArea: -1,
   currentType: {
     name: "推荐歌手",
     type: 1,
