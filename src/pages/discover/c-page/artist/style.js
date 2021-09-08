@@ -5,12 +5,13 @@ export const WrapperArtist = styled.div`
 `;
 
 export const ArtistLeft = styled.div`
-  width: 240px;
+  width: 198px;
   border: 1px solid #d3d3d3;
+  border-right: 0px;
   border-width: 0 1px;
 `;
 export const ArtistRight = styled.div`
-  width: 740px;
+  width: 870px;
   border-right: 1px solid #d3d3d3;
   background-color: #fafafa;
 `;

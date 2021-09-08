@@ -1,11 +1,9 @@
-import React, { memo, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { memo } from "react";
 
 import YQListAlpha from "./c-cpns/list-alpha";
 import YQListItem from "./c-cpns/list-item";
 import YQThemeHeaderSmall from "@/components/theme-header-title";
 
-import { getArtistListAction } from "../../store/actioncreators";
 import { useSelector } from "react-redux";
 
 import { WrapperList } from "./style";
@@ -15,10 +13,6 @@ export default memo(function YQArtistList() {
     artistlist: state.getIn(["artist", "artistlist"]),
   }));
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getArtistListAction());
-  });
   return (
     <WrapperList>
       <YQThemeHeaderSmall title={currentType.name} more={"更多"} />
