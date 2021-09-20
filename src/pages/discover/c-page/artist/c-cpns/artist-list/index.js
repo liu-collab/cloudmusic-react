@@ -1,21 +1,21 @@
-import React, { memo } from "react";
+import React, { memo } from 'react';
 
-import YQListAlpha from "./c-cpns/list-alpha";
-import YQListItem from "./c-cpns/list-item";
-import YQThemeHeaderSmall from "@/components/theme-header-title";
+import YQListAlpha from './c-cpns/list-alpha';
+import YQListItem from './c-cpns/list-item';
+import YQThemeHeaderSmall from '@/components/theme-header-title';
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { WrapperList } from "./style";
+import { WrapperList } from './style';
 export default memo(function YQArtistList() {
-  const { currentType, artistlist } = useSelector((state) => ({
-    currentType: state.getIn(["artist", "currentType"]),
-    artistlist: state.getIn(["artist", "artistlist"]),
+  const { currentType, artistlist } = useSelector(state => ({
+    currentType: state.getIn(['artist', 'currentType']),
+    artistlist: state.getIn(['artist', 'artistlist']),
   }));
 
   return (
     <WrapperList>
-      <YQThemeHeaderSmall title={currentType.name} more={"更多"} />
+      <YQThemeHeaderSmall title={currentType.name} more={'更多'} />
       <YQListAlpha></YQListAlpha>
       <div className="artist-list">
         {artistlist.map((item, index) => {

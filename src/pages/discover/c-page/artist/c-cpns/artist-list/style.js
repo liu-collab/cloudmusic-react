@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrapperList = styled.div`
-  flex: 1;
-  padding: 40px;
-  .artist-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex: 1;
+    padding: 40px;
+    .artist-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-    padding: 5px 0 40px;
-  }
+        padding: 5px 0 40px;
+    }
 `;
