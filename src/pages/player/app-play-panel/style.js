@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import imgurl from '@/assets/img/playpanel_bg.png';
 export const WrapperPlayPanel = styled.div`
   position: absolute;
   left: 50%;
@@ -13,7 +13,7 @@ export const WrapperPlayPanel = styled.div`
     display: flex;
     height: 260px;
     overflow: hidden;
-    background: url(${require('@/assets/img/playpanel_bg.png')}) -1014px 0 repeat-y;
+    background: url(${imgurl}) -1014px 0 repeat-y;
 
     .image {
       position: absolute;
