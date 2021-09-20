@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrapperPlayPanel = styled.div`
-position: absolute;
+  position: absolute;
   left: 50%;
   bottom: 46px;
   transform: translateX(-50%);
@@ -13,7 +13,7 @@ position: absolute;
     display: flex;
     height: 260px;
     overflow: hidden;
-    background: url(${require("@/assets/img/playpanel_bg.png").default}) -1014px 0 repeat-y;
+    background: url(${require('@/assets/img/playpanel_bg.png')}) -1014px 0 repeat-y;
 
     .image {
       position: absolute;
@@ -21,8 +21,7 @@ position: absolute;
       top: -360px;
       width: 980px;
       height: auto;
-      opacity: .2;
+      opacity: 0.2;
     }
   }
-
-`
+`;
