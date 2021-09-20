@@ -1,11 +1,11 @@
-import styled from "styled-components"; 
+import styled from 'styled-components';
 
 export const WrapperHeader = styled.div`
- display: flex;
+  display: flex;
   height: 41px;
   line-height: 41px;
-  background: url(${require("@/assets/img/playpanel_bg.png").default}) 0 0;
-`
+  background: url(${require('@/assets/img/playpanel_bg.png')}) 0 0;
+`;
 export const HeaderLeft = styled.div`
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,7 @@ export const HeaderLeft = styled.div`
       position: relative;
       top: 4px;
       right: 2px;
-     padding: 0 8px;
+      padding: 0 8px;
     }
 
     .favor {
@@ -41,10 +41,10 @@ export const HeaderLeft = styled.div`
       background-position: -51px 0;
     }
   }
-`
+`;
 export const HeaderRight = styled.div`
- flex: 1;
+  flex: 1;
   text-align: center;
   color: #fff;
   font-size: 14px;
-`
+`;
