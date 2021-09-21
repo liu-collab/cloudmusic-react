@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import imgUrl from '@/assets/img/download.png';
 
 export const WrapperBanners = styled.div`
   background: url(${(props) => props.bgImage}) center/6000px;
@@ -41,7 +42,7 @@ export const BannersRight = styled.a.attrs({
 })`
   width: 254px;
   height: 270px;
-  background: url(${require('@/assets/img/download.png')});
+  background: url(${imgUrl});
 `;
 
 export const BannerControl = styled.div`

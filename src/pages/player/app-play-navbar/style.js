@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import imgUrl from '@/assets/img/sprite_icon.png';
 export const WarpperPlayBar = styled.div`
   position: fixed;
   left: 0;
@@ -96,7 +96,7 @@ export const PlayInfo = styled.div`
           height: 24px;
           border: none;
           margin-top: -7px;
-          background: url(${require('@/assets/img/sprite_icon.png')}) 0 -250px;
+          background: url(${imgUrl}) 0 -250px;
         }
       }
       .time {
