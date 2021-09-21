@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 
 import { Spin, Alert } from 'antd';
-
+import { WrapperLoading } from './style';
 export default memo(function YQIsLoading() {
   return (
-    <div>
+    <WrapperLoading className="wrap-v2">
       <Spin tip="Loading..." size="large">
         <Alert message="加载中" type="info" />
       </Spin>
-    </div>
+    </WrapperLoading>
   );
 });
