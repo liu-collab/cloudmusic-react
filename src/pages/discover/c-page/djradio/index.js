@@ -1,18 +1,12 @@
-import React, { memo, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { memo } from 'react';
 
-import { changeDjrdioCategoryAction } from './store/actioncreators';
+import YQRadioCategory from './c-cpns/radio-category';
 import { WrapperDjradio } from './style';
 
 export default memo(function YQDjradio() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(changeDjrdioCategoryAction());
-  });
   return (
     <WrapperDjradio className="wrap-v2">
-      <h2>YQDjradio</h2>
+      <YQRadioCategory></YQRadioCategory>
     </WrapperDjradio>
   );
 });
