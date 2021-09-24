@@ -1,1 +1,2 @@
 export const CHANGE_DJRDIO_CATEGORY = 'djrdio/CHANGE_DJRDIO_CATEGORY';
+export const CHANGE_CURRENT_ID = 'djrdio/CHANGE_CURRENT_ID';

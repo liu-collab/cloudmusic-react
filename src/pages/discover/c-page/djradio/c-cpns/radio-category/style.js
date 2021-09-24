@@ -23,4 +23,59 @@ export const WrappCategory = styled.div`
 export const CategoryContent = styled.div`
   flex: 1;
   width: 900px;
+  .category-page {
+    display: flex !important;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    :hover {
+      background-color: #eee;
+    }
+    &.active{
+      color: #c20c0c;
+      border: 2px solid #d35757;
+      .image {
+          background-position: -48px 0;
+        }
+    }
+  }
+  .dots {
+    bottom: 5px;
+    li {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+
+      button {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #aaa;
+      }
+    }
+
+    li.slick-active {
+      width: 20px;
+      button {
+        background-color: #c20c0c;
+      }
+    }
+  }
+`;
+export const CategoryImage = styled.div`
+  width: 48px;
+  height: 48px;
+  background-image: url(${(props) => props.imgUrl});
 `;

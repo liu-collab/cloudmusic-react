@@ -8,4 +8,9 @@ module.exports = {
       },
     ],
   },
+  // devServer: {
+  //   clinet: {
+  //     overlay: false,
+  //   },
+  // },
 };

@@ -6,10 +6,17 @@ const changeDjrdioCategory = (res) => ({
   categories: res.categories,
 });
 
+export const changeCurrentId = (id) => ({
+  type: actionType.CHANGE_CURRENT_ID,
+  currentId: id,
+});
+
 export const changeDjrdioCategoryAction = () => {
   return (dispatch) => {
     getDjradioCategory().then((res) => {
       dispatch(changeDjrdioCategory(res));
+      const currentId = res.categories[0].id;
+      dispatch(changeCurrentId(currentId));
     });
   };
 };
