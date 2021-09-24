@@ -14,3 +14,14 @@ export function getDjradioRecommend(type) {
     },
   });
 }
+
+export function getDjradioRadio(cateId, limit, offset) {
+  return request({
+    url: '/dj/radio/hot',
+    params: {
+      cateId,
+      limit,
+      offset,
+    },
+  });
+}

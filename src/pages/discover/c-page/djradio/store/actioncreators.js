@@ -1,5 +1,9 @@
 import * as actionType from './costans';
-import { getDjradioCategory, getDjradioRecommend } from '@/services/djrdio';
+import {
+  getDjradioCategory,
+  getDjradioRecommend,
+  getDjradioRadio,
+} from '@/services/djrdio';
 
 const changeDjrdioCategory = (res) => ({
   type: actionType.CHANGE_DJRDIO_CATEGORY,
@@ -13,6 +17,11 @@ const changeDjrdioRecommend = (res) => ({
 export const changeCurrentId = (id) => ({
   type: actionType.CHANGE_CURRENT_ID,
   currentId: id,
+});
+
+export const changeRadio = (res) => ({
+  type: actionType.CHANGE_DJRADIO_RADIOS,
+  radios: res.djRadios,
 });
 
 export const changeDjrdioCategoryAction = () => {
@@ -29,6 +38,14 @@ export const changeDjrdioRecommendAction = (currentId) => {
   return (dispatch) => {
     getDjradioRecommend(currentId).then((res) => {
       dispatch(changeDjrdioRecommend(res));
+    });
+  };
+};
+
+export const changeDjrdioRadioAction = (currendId, offset) => {
+  return (dispatch) => {
+    getDjradioRadio(currendId, 19, offset).then((res) => {
+      dispatch(changeRadio(res));
     });
   };
 };

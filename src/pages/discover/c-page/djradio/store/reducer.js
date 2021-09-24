@@ -4,6 +4,7 @@ const defaultState = Map({
   categories: [],
   currentId: 0,
   recommends: [],
+  radios: [],
 });
 
 function reducer(state = defaultState, action) {
@@ -14,6 +15,8 @@ function reducer(state = defaultState, action) {
       return state.set('currentId', action.currentId);
     case actionType.CHANGE_DJRDIO_RECOMMEND:
       return state.set('recommends', action.recommends);
+    case actionType.CHANGE_DJRADIO_RADIOS:
+      return state.set('radios', action.radios);
     default:
       return state;
   }

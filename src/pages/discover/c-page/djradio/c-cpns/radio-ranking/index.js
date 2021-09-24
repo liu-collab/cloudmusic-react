@@ -3,7 +3,7 @@ import React, { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import YQThemeHeaderTitle from '@/components/theme-header-title';
-import YQrecommendCover from '../../../../../../components/djrdio-recommend-cover';
+import YQrecommendCover from '@/components/djrdio-recommend-cover';
 import { changeDjrdioRecommendAction } from '../../store/actioncreators';
 import { WrappRanking } from './style';
 
