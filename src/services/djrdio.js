@@ -5,3 +5,12 @@ export function getDjradioCategory() {
     url: '/dj/catelist',
   });
 }
+
+export function getDjradioRecommend(type) {
+  return request({
+    url: '/dj/recommend/type',
+    params: {
+      type,
+    },
+  });
+}

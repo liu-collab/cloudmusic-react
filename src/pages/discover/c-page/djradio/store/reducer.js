@@ -3,6 +3,7 @@ import * as actionType from './costans';
 const defaultState = Map({
   categories: [],
   currentId: 0,
+  recommends: [],
 });
 
 function reducer(state = defaultState, action) {
@@ -11,6 +12,8 @@ function reducer(state = defaultState, action) {
       return state.set('categories', action.categories);
     case actionType.CHANGE_CURRENT_ID:
       return state.set('currentId', action.currentId);
+    case actionType.CHANGE_DJRDIO_RECOMMEND:
+      return state.set('recommends', action.recommends);
     default:
       return state;
   }
