@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 import YQThemeHeaderTitle from '@/components/theme-header-title';
 import YQDjrdioContent from '@/components/djrdio-content';
-import YQPagination from '../../../../../../components/pagination';
+import YQPagination from '@/components/pagination';
 
 import { changeDjrdioRadioAction } from '../../store/actioncreators';
 import { shallowEqual, useDispatch } from 'react-redux';
