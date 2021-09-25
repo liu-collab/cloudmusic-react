@@ -18,13 +18,15 @@ export const WrapperDjContent = styled.div`
       height: 15px;
       margin-top: 5px;
       background-position: -50px -300px;
+      vertical-align: text-bottom;
     }
-    span {
+    .nick {
+      display: inline-block;
       margin-left: 3px;
     }
   }
   .count {
-    margin-top: 5px;
+    margin-top: 15px;
     color: #666666;
     .subCount {
       margin-left: 10px;

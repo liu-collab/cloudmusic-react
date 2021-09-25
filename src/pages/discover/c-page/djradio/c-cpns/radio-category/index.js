@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
-import  classnames  from 'classnames';
+import classnames from 'classnames';
 
 import { Carousel } from 'antd';
 
@@ -24,7 +24,8 @@ export default memo(function YQRadioCategory() {
   useEffect(() => {
     dispatch(changeDjrdioCategoryAction());
   }, [dispatch]);
-  const CarouselRef= useRef()
+  const CarouselRef = useRef();
+  if (!categories) return;
   const page = Math.ceil(categories.length / PAGE_SIZE) || 1;
 
   function getSize(index) {
@@ -34,9 +35,12 @@ export default memo(function YQRadioCategory() {
   }
   return (
     <WrappCategory>
-      <div className="arrow arrow-left" onClick = {e=>CarouselRef.current.prev()} ></div>
+      <div
+        className="arrow arrow-left"
+        onClick={(e) => CarouselRef.current.prev()}
+      ></div>
       <CategoryContent>
-        <Carousel dots={{className:'dots'}} ref={CarouselRef }>
+        <Carousel dots={{ className: 'dots' }} ref={CarouselRef}>
           {Array(page)
             .fill(0)
             .map((_, index) => {
@@ -48,7 +52,9 @@ export default memo(function YQRadioCategory() {
                       return (
                         <div
                           key={item.id}
-                          className={classnames("category-item", {"active": currentId === item.id})}
+                          className={classnames('category-item', {
+                            active: currentId === item.id,
+                          })}
                           onClick={(e) => dispatch(changeCurrentId(item.id))}
                         >
                           <CategoryImage
@@ -64,7 +70,10 @@ export default memo(function YQRadioCategory() {
             })}
         </Carousel>
       </CategoryContent>
-      <div className="arrow arrow-right" onClick = {e=>CarouselRef.current.next()}></div>
+      <div
+        className="arrow arrow-right"
+        onClick={(e) => CarouselRef.current.next()}
+      ></div>
     </WrappCategory>
   );
 });

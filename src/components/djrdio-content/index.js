@@ -14,7 +14,7 @@ export default memo(function YQDjrdioContent(props) {
         <h2>{info.name}</h2>
         <div className=" nickname sprite_icon2">
           <i className="sprite_icon2 left"> </i>
-          <span>{info.dj.nickname}</span>
+          <span className="nick">{info.dj.nickname}</span>
         </div>
         <div className="count">
           <span>共{info.programCount}期</span>
