@@ -44,7 +44,7 @@ export const changeDjrdioRecommendAction = (currentId) => {
 
 export const changeDjrdioRadioAction = (currendId, offset) => {
   return (dispatch) => {
-    getDjradioRadio(currendId, 19, offset).then((res) => {
+    getDjradioRadio(currendId, 30, offset).then((res) => {
       dispatch(changeRadio(res));
     });
   };

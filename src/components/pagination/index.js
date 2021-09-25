@@ -4,7 +4,7 @@ import { Pagination } from 'antd';
 import { PaginationWrapper } from './style';
 
 export default memo(function YQPagination(props) {
-  const { currentPage, total, onPageChange } = props;
+  const { currentPage, total, onPageChange, pageSize = 35 } = props;
 
   // render function
   function itemRender(current, type, originalElement) {
@@ -19,15 +19,17 @@ export default memo(function YQPagination(props) {
 
   return (
     <PaginationWrapper>
-      <Pagination className="pagination"
+      <Pagination
+        className="pagination"
         size="small"
         current={currentPage}
         defaultCurrent={1}
         total={total}
-        pageSize={35}
+        pageSize={pageSize}
         showSizeChanger={false}
         itemRender={itemRender}
-        onChange={onPageChange} />
+        onChange={onPageChange}
+      />
     </PaginationWrapper>
-  )
-})
+  );
+});
