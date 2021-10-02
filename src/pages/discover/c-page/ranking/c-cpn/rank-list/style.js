@@ -1,31 +1,29 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
+import imgUrl from '@/assets/img/sprite_table.png';
 export const WrapperRankList = styled.div`
-padding: 0 30px 40px 40px;
+  padding: 0 30px 40px 40px;
 
-.ranking-list {
-  table {
-    width: 100%;
-    border: 1px solid #d9d9d9;
-    thead {
-      th {
-         height: 34px;
+  .ranking-list {
+    table {
+      width: 100%;
+      border: 1px solid #d9d9d9;
+      thead {
+        th {
+          height: 34px;
           line-height: 34px;
-          background-image: url(${require("@/assets/img/sprite_table.png").default});
+          background-image: url(${imgUrl});
           color: #666;
           border: 1px solid #ddd;
           border-width: 0 0 1px 1px;
           padding-left: 10px;
-          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25);
-         
-      }
-      .ranking {
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+        }
+        .ranking {
           width: 78px;
           border-left: none;
         }
-      .title {
-       
-      }
+        .title {
+        }
         .duration {
           width: 91px;
         }
@@ -33,8 +31,8 @@ padding: 0 30px 40px 40px;
         .singer {
           width: 173px;
         }
-    }
-     tbody {
+      }
+      tbody {
         td {
           padding: 6px 10px;
         }
@@ -43,7 +41,7 @@ padding: 0 30px 40px 40px;
           background-color: #fff;
         }
 
-        tr:nth-child(2n+1) {
+        tr:nth-child(2n + 1) {
           background-color: #f7f7f7;
         }
 
@@ -78,6 +76,7 @@ padding: 0 30px 40px 40px;
             width: 17px;
             height: 17px;
             background-position: 0 -103px;
+            cursor: pointer;
           }
 
           .name {
@@ -85,6 +84,6 @@ padding: 0 30px 40px 40px;
           }
         }
       }
+    }
   }
-}
-`
+`;
