@@ -1,20 +1,20 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrapperHeader = styled.div`
-display: flex;
-justify-content: space-between;
-align-content: center;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
   padding: 10px 10px;
-  border-bottom: 3px solid #C10D0C;
-`
+  border-bottom: 3px solid #c10d0c;
+`;
 
 export const HeaderLeft = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   position: relative;
   .title {
     font-size: 24px;
-    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
   }
 
   .select {
@@ -31,7 +31,7 @@ display: flex;
     cursor: pointer;
     &:hover {
       background-color: #fff;
-    } 
+    }
 
     i {
       position: relative;
@@ -43,17 +43,14 @@ display: flex;
       background-position: -70px -543px;
     }
   }
-
-
-`
+`;
 export const HeaderRight = styled.div`
-
-.hot {
-  width: 46px;
-  height: 29px;
-  background-color:#C10D0C ;
-  color: #fff;
-  border-radius: 2px;
-}
-
-`
+  .hot {
+    width: 46px;
+    height: 29px;
+    background-color: #c10d0c;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+`;
