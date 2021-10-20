@@ -1,21 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WrappperThemeHeaderRCM = styled.div`
   height: 33px;
-  border-bottom: 2px solid #C10D0C;
+  border-bottom: 2px solid #c10d0c;
   padding: 0 10px 4px 34px;
   background-position: -225px -156px;
-   display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
-   .left {
+  .left {
     display: flex;
     align-items: center;
 
     .title {
       font-size: 20px;
-      font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+      font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
       margin-right: 20px;
     }
 
@@ -23,14 +23,16 @@ export const WrappperThemeHeaderRCM = styled.div`
       display: flex;
 
       .item {
+        .link {
+          cursor: pointer;
+        }
         .divider {
           margin: 0 15px;
           color: #ccc;
         }
-         :nth-child(5) .divider{
+        :nth-child(5) .divider {
           display: none;
-          }
-
+        }
       }
     }
   }
@@ -46,4 +48,4 @@ export const WrappperThemeHeaderRCM = styled.div`
       background-position: 0 -240px;
     }
   }
-`
+`;
