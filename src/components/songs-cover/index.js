@@ -1,13 +1,8 @@
 import React, { memo } from 'react';
 
-import {
-  getSizeImage,
-  getCount
-} from "@/utils/format-utils";
+import { getSizeImage, getCount } from '@/utils/format-utils';
 
-import {
-  SongCoverWrapper
-} from "./style";
+import { SongCoverWrapper } from './style';
 
 export default memo(function YQSongCover(props) {
   const { info, right } = props;
@@ -26,12 +21,10 @@ export default memo(function YQSongCover(props) {
           </div>
         </div>
       </div>
-      <div className="cover-bottom text-nowrap">
-        {info.name}
-      </div>
+      <div className="cover-bottom text-nowrap">{info.name}</div>
       <div className="cover-source">
-        by {info.copywriter}
+        by {info.copywriter || info.creator.nickname}
       </div>
     </SongCoverWrapper>
-  )
-})
+  );
+});
