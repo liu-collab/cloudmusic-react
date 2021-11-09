@@ -5,8 +5,12 @@ import { getSizeImage, getCount } from '@/utils/format-utils';
 import { SongCoverWrapper } from './style';
 
 export default memo(function YQSongCover(props) {
-  const { info, right } = props;
+  const { info, right, nickname1 = undefined } = props;
+  let nickname = info.copywriter ? info.copywriter : '热门推荐';
 
+  if (nickname1) {
+    nickname = info.creator.nickname;
+  }
   return (
     <SongCoverWrapper right={right}>
       <div className="cover-top">
@@ -22,9 +26,7 @@ export default memo(function YQSongCover(props) {
         </div>
       </div>
       <div className="cover-bottom text-nowrap">{info.name}</div>
-      <div className="cover-source">
-        by {info.copywriter || info.creator.nickname}
-      </div>
+      <div className="cover-source">by {nickname}</div>
     </SongCoverWrapper>
   );
 });
