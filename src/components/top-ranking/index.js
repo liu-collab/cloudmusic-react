@@ -1,14 +1,16 @@
-import React, { memo } from 'react';
-import { WarpperTopRanking } from './style';
-import { getSizeImage } from '@/utils/format-utils';
-import { getSongDetailAction } from '@/pages/player/store/actionsCreators';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { memo } from "react";
+import { WarpperTopRanking } from "./style";
+import { getSizeImage } from "@/utils/format-utils";
+import { getSongDetailAction } from "@/pages/player/store/actionsCreators";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 export default memo(function YQTopRanking(props) {
   const { info } = props;
+  const dispatch = useDispatch();
+
+  if (!info) return <></>;
   const { tracks = [] } = info;
 
-  const dispatch = useDispatch();
   //other handle
   const playMusic = (item) => {
     dispatch(getSongDetailAction(item.id));
@@ -19,7 +21,7 @@ export default memo(function YQTopRanking(props) {
         <div className="image">
           <img src={getSizeImage(info.coverImgUrl, 80)} alt="" />
           <a href="/todo" className="image_cover">
-            {' '}
+            {" "}
           </a>
         </div>
         <div className="info">
