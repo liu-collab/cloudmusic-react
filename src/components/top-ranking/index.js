@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export default memo(function YQTopRanking(props) {
   const { info } = props;
   const dispatch = useDispatch();
+  console.log(info);
 
   if (!info) return <></>;
   const { tracks = [] } = info;

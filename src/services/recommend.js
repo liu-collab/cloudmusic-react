@@ -27,11 +27,11 @@ export function getNewAlbum(limit) {
   });
 }
 
-export function getTopList(idx) {
+export function getTopList(type) {
   return request({
-    url: "/toplist",
+    url: "/toplist/detail",
     params: {
-      idx,
+      type,
     },
   });
 }
